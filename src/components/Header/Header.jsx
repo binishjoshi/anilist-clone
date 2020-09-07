@@ -21,7 +21,7 @@ export default function Header() {
                 <Link className={classes.links} to='/anime'>Social</Link>
                 <Link className={classes.links} to='/login'>Forum</Link>
                 <Link className={classes.login} to='/login'>Login</Link>
-                <SignUp>Sign Up</SignUp>
+                <Link to='/signup'><SignUp>Sign Up</SignUp></Link>
               </div>
             </div>
           </Toolbar>

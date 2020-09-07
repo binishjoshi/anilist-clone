@@ -43,4 +43,5 @@ export const useStyles = makeStyles((theme) => ({
     fontFamily: 'arial',
     fontSize: '0.8em',
   },
+  offset: theme.mixins.toolbar,
 }));

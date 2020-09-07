@@ -27,6 +27,7 @@ export default function Header() {
           </Toolbar>
         </AppBar>
       </ThemeProvider>
+      <div className={classes.offset}>Hallo</div>
     </div>
   );
 }

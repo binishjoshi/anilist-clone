@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 
 import Header from './components/Header/Header';
 import Home from './pages/Home';
@@ -19,7 +18,6 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={darkTheme}>
-        <Paper style={{height: '100vh'}}>
         <Header />
         <div>
           <Switch>
@@ -33,7 +31,6 @@ function App() {
           </Switch>
         </div>
         <Footer />
-        </Paper>
       </ThemeProvider>
     </BrowserRouter>
   );

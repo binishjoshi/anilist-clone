@@ -26,7 +26,7 @@ const DropDown = ({ optionData }) => {
   };
 
   let options;
-  if (optionData == 'year') {
+  if (optionData === 'year') {
     options = Array.from({length: 82}, (_, i) => i + 1940)
     options.reverse();
   } else {

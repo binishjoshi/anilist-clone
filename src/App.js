@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import SearchAnime from './pages/SearchAnime';
 import SearchManga from './pages/SearchManga';
 import Anime from './pages/Anime';
+import DisplayAnime from './pages/DisplayAnime';
 import Manga from './pages/Manga';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
@@ -28,6 +29,7 @@ function App() {
             <Route exact path='/manga' component={Manga} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/gintama' component={DisplayAnime} />
           </Switch>
         </div>
         <Footer />

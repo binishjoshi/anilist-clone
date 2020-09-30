@@ -1,0 +1,45 @@
+export const fakeData = {
+  'Format': 'TV',
+  'Episodes': '51',
+  'Episode Duration': '24 mins',
+  'Status': 'Finished',
+  'Start Date': 'Apr 8, 2015',
+  'End Date': 'Mar 30, 2016',
+  'Season': 'Spring 2015',
+  'Average Score': '89%',
+  'Mean Score': '90%',
+  'Popularity': '38518',
+  'Favorites': '1861',
+  'Studios': 'Bandai Namco Pictures',
+  'Source': 'Manga',
+  'Hashtag': '#gintama',
+  'Genres': 'Action, Comedy, Drama, Sci-Fi',
+  'Romaji': 'Gintama°',
+  'English': 'Gintama Season 4',
+  'Native': '銀魂°',
+};
+
+export const tags = {
+  'Meta': '86%',
+  'Parody': '85%',
+  'Shounen': '85%',
+  'Samurai': '80%',
+  'Swordplay': '76%',
+  'Male Protagonist': '72%',
+  'Aliens': '71%',
+  'Ninja': '70%',
+  'Anachronism': '60%',
+  'Historical': '48%',
+  'Space': '48%',
+  'Primary Adult Cast': '40%',
+  'LGBTQ Issues': '30%',
+};
+
+export const relations = [
+  'Source',
+  'Prequel',
+  'Prequel',
+  'Sequel',
+  'SideStory',
+  'SideStory',
+];

@@ -149,5 +149,14 @@ export const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: 'repeat(2, auto)',
     rowGap: '20px',
     columnGap: '35px',
-  }
+  },
+  staff: {
+    marginTop: '45px',
+  },
+  staffContainer: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, auto)',
+    rowGap: '20px',
+    columnGap: '35px',
+  },
 }));

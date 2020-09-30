@@ -10,6 +10,7 @@ import { Typography } from '@material-ui/core';
 
 import { fakeData, tags, relations } from './data';
 import CharacterCard from '../CharacterCard/CharacterCard';
+import StaffCard from '../StaffCard/StaffCard';
 
 const DisplayEntry = () => {
   const classes = useStyles();
@@ -115,6 +116,14 @@ const DisplayEntry = () => {
               <CharacterCard />
               <CharacterCard />
               <CharacterCard />
+            </div>
+          </div>
+          <div className={classes.staff}>
+            <Typography variant="subtitle1">Staff</Typography>
+            <div className={classes.staffContainer}>
+              <StaffCard />
+              <StaffCard />
+              <StaffCard />
             </div>
           </div>
         </div>

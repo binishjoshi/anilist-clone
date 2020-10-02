@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -13,6 +13,8 @@ import CharacterCard from '../CharacterCard/CharacterCard';
 import StaffCard from '../StaffCard/StaffCard';
 import RightTopInfo from './RightTopInfo';
 import LeftOverview from './LeftOverview';
+import StatusDistribution from '../StatusDistribution/StatusDistrubution';
+import ScoreDistribution from '../ScoreDistribution/ScoreDistribution';
 
 const DisplayEntry = () => {
   const classes = useStyles();
@@ -64,6 +66,10 @@ const DisplayEntry = () => {
               <StaffCard />
               <StaffCard />
             </div>
+          </div>
+          <div className={classes.chartsContainer}>
+            <StatusDistribution />
+            <ScoreDistribution />
           </div>
         </div>
       </div>

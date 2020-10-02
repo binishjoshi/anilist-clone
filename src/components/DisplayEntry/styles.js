@@ -159,4 +159,10 @@ export const useStyles = makeStyles((theme) => ({
     rowGap: '20px',
     columnGap: '35px',
   },
+  chartsContainer: {
+    margin: '35px 0 20px 0',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 48%)',
+    columnGap: '35px',
+  },
 }));

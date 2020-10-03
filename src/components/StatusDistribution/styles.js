@@ -24,8 +24,9 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   users: {
-    display: 'grid',
+    display: 'flex',
     justifyContent: 'center',
+    columnGap: '3px',
     marginTop: '5px',
   },
   lineChart: {

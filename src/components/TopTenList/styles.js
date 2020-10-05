@@ -38,7 +38,11 @@ export const rowStyles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-    }
+    },
+    "& span": {
+      marginLeft: '35%',
+      width: '69vw',
+    },
   },
   genres: {
     fontSize: '0.7em',
@@ -50,7 +54,27 @@ export const rowStyles = makeStyles((theme) => ({
       borderRadius: '14px',
       height: '7px',
     }
-  }
+  },
+  name: {
+    "& a": {
+      textDecoration: 'none',
+      color: 'inherit',
+    },
+    "& p": {
+      marginBottom: '4px',
+      fontWeight: '401',
+    }
+  },
+  moreInfo: {
+    "& h6:first-child": {
+      fontSize: '0.9rem',
+      fontWeight: '401',
+    },
+    "& h6:last-child": {
+      fontSize: "0.75rem",
+      fontWeight: '400',
+    },
+  },
 }));
 
 export const genreStyles = {

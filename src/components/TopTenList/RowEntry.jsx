@@ -1,37 +1,64 @@
 import React from 'react';
+import uniqid from 'uniqid';
+import { Link } from 'react-router-dom';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import { rowStyles, genreStyles } from './styles';
 import gintama from '../../img/gintama.png';
 import { Typography } from '@material-ui/core';
 
-const RowEntry = () => {
+const RowEntry = ({ anime, rank, isLoading }) => {
   const classes = rowStyles();
-  return (
-    <div className={classes.rowContainer}>
-      <div className={classes.rank}>#1</div>
-      <div className={classes.rowInfo}>
-        <img alt="gintama" src={gintama} />
-        <div className={classes.name}>
-          <Typography>FullMetal Alchemist: Brotherhood</Typography>
-          <div className={classes.genres} style={genreStyles}>
-            <div>Action</div>
-            <div>Adventure</div>
+
+  const lower = (value) => {
+    value = value.toLowerCase();
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
+  const load = () => {
+    if (isLoading) {
+      return (
+        <div className={classes.rowInfo}>
+          <Skeleton animation="wave" />
+        </div>
+      )
+    } else {
+      return (
+        <div className={classes.rowInfo}>
+          <img alt="gintama" src={gintama} />
+          <div className={classes.name}>
+            <Link to="/gintama"><Typography>{anime.title.romaji}</Typography></Link>
+            <div className={classes.genres} style={genreStyles}>
+              {
+                anime.genres.map(genre => <div key={uniqid()}>{genre}</div>)
+              }
+            </div>
+          </div>
+          <div className={classes.moreInfo}>
+            <Typography variant="subtitle1">{anime.averageScore}%</Typography>
+            <Typography variant="subtitle2">{anime.popularity} users</Typography>
+          </div>
+          <div className={classes.moreInfo}>
+            <Typography variant="subtitle1">{anime.format}</Typography>
+            <Typography variant="subtitle2">{anime.episodes} episodes</Typography>
+          </div>
+          <div className={classes.moreInfo}>
+            <Typography variant="subtitle1">{lower(anime.season)} {anime.seasonYear}</Typography>
+            <Typography variant="subtitle2">{lower(anime.status)}</Typography>
           </div>
         </div>
-        <div className={classes.rating}>
+      )
+    }
+  }
 
-          <Typography variant="subtitle1">91%</Typography>
-          <Typography variant="subtitle2">201364 users</Typography>
-        </div>
-        <div className={classes.type}>
-          <Typography variant="subtitle1">TV Show</Typography>
-          <Typography variant="subtitle2">64 episodes</Typography>
-        </div>
-        <div className={classes.year}>
-          <Typography variant="subtitle1">Spring 2009</Typography>
-          <Typography variant="subtitle2">Finished</Typography>
-        </div>
+  return (
+    <div className={classes.rowContainer}>
+      <div className={classes.rank}>
+        <Typography variant="h5">#{rank}</Typography>
       </div>
+      {
+        load()
+      }
     </div>
   );
 };

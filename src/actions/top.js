@@ -25,6 +25,8 @@ export const getTop = (type, number) => (dispatch) => {
         format
         status
         duration
+        popularity
+        episodes
       }
     }
   }`

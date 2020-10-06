@@ -27,7 +27,7 @@ const RowEntry = ({ anime, rank, isLoading }) => {
         <div className={classes.rowInfo}>
           <img alt="gintama" src={gintama} />
           <div className={classes.name}>
-            <Link to="/gintama"><Typography>{anime.title.romaji}</Typography></Link>
+            <Link to={`/anime/${anime.id}`}><Typography>{anime.title.romaji}</Typography></Link>
             <div className={classes.genres} style={genreStyles}>
               {
                 anime.genres.map(genre => <div key={uniqid()}>{genre}</div>)

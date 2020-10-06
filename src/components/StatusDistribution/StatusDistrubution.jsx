@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqid from 'uniqid';
 
 import { Typography } from '@material-ui/core';
 
@@ -14,7 +15,7 @@ const StatusDistribution = () => {
         <div className={classes.infoContainer}>
           {
             Object.keys(statusData).map(category => (
-              <div className={classes.info}>
+              <div className={classes.info} key={uniqid()} >
                 <div className={classes.statusText}>
                   <Typography variant="body2">{category}</Typography>
                 </div>

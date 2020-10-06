@@ -31,7 +31,7 @@ function App() {
             <Route exact path='/manga' component={Manga} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={SignUp} />
-            <Route exact path='/gintama' component={DisplayAnime} />
+            <Route exact path='/anime/:id' component={DisplayAnime} />
           </Switch>
         </div>
         <Footer />

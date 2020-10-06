@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import uniqid from 'uniqid';
 import { Typography } from '@material-ui/core';
 
 import { tags, fakeData } from './data';
@@ -18,7 +19,7 @@ const LeftOverview = () => {
         {
           Object.keys(fakeData).map(key => {
             return (
-              <Fragment>
+              <Fragment key={uniqid()}>
                 <Typography variant="subtitle1">{key}</Typography>
                 <Typography variant="body2">{fakeData[key]}</Typography>
               </Fragment>
@@ -35,7 +36,7 @@ const LeftOverview = () => {
         {
           Object.keys(tags).map(key => {
             return (
-              <div className={classes.tag}>
+              <div className={classes.tag} key={uniqid()} >
                 <Typography variant="body1">{key}</Typography>
                 <Typography variant="body1">{tags[key]}</Typography>
               </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import uniqid from 'uniqid';
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
@@ -41,12 +42,12 @@ const DisplayEntry = () => {
             <div className={classes.relationContainer}>
               {
                 relations.map(relation => (
-                <Link className={classes.relation}>
-                  <img alt="gintama" src={gintama} />
-                  <div className={classes.relationText}>
-                    <Typography variant="body2">{relation}</Typography>
-                  </div>
-                </Link>
+                  <Link className={classes.relation} key={uniqid()} to="/anime/id" >
+                    <img alt="gintama" src={gintama} />
+                    <div className={classes.relationText}>
+                      <Typography variant="body2">{relation}</Typography>
+                    </div>
+                  </Link>
                 ))
               }
             </div>

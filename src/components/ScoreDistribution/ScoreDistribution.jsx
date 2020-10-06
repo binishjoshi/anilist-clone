@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqid from 'uniqid';
 
 import { useStyles } from './styles';
 import { Typography } from '@material-ui/core';
@@ -12,8 +13,8 @@ const ScoreDistribution = () => {
       <div className={classes.chartContainer}>
         {
           Object.keys(scoreData).map(score => (
-            <div className={classes.barContainer}>
-              <div className={classes.alignContainer}>
+            <div className={classes.barContainer} key={uniqid()} >
+              <div className={classes.alignContainer} >
                 <Typography variant="body2">{scoreData[score]}</Typography>
                 <div className={classes.bar}></div>
                 <Typography variant="body2">{score}</Typography>

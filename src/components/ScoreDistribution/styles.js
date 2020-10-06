@@ -30,8 +30,6 @@ export const useStyles = makeStyles((theme) => ({
 const generateBars = () => {
   const greatest = Math.max(...Object.values(scoreData));
 
-  console.log(greatest);
-
   let percent = {};
   Object.keys(scoreData).map(score => {
     percent[score] = Math.round((scoreData[score] / greatest) * 50);

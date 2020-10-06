@@ -11,6 +11,7 @@ import DisplayAnime from './pages/DisplayAnime';
 import Manga from './pages/Manga';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Top from './pages/Top';
 import Footer from './components/Footer/Footer';
 
 import { darkTheme } from './appStyles';
@@ -26,6 +27,7 @@ function App() {
             <Route exact path='/search/anime' component={SearchAnime} />
             <Route exact path='/search/manga' component={SearchManga} />
             <Route exact path='/anime' component={Anime} />
+            <Route exact path='/top50' component={Top} />
             <Route exact path='/manga' component={Manga} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={SignUp} />

@@ -2,7 +2,7 @@ import React from 'react';
 
 import SearchOption from '../components/SearchOptions/SearchOptions';
 import DisplayRow from '../components/DisplayRow/DisplayRow';
-import TopTenList from '../components/TopTenList/TopTenList';
+import TopAnimeList from '../components/TopAnimeList/TopAnimeList';
 
 const style = {
   marginRight: '10%',
@@ -17,7 +17,7 @@ const SearchAnime = () => {
       <DisplayRow />
       <DisplayRow />
       <DisplayRow />
-      <TopTenList />
+      <TopAnimeList number={10} />
     </div>
   );
 };

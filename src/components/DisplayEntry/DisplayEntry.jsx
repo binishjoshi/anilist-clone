@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
+
+import { getInfo } from '../../actions/info';
 
 import { useStyles } from './styles';
 import gintamaBanner from '../../img/gintama-banner.jpg';
@@ -17,8 +20,13 @@ import LeftOverview from './LeftOverview';
 import StatusDistribution from '../StatusDistribution/StatusDistrubution';
 import ScoreDistribution from '../ScoreDistribution/ScoreDistribution';
 
-const DisplayEntry = () => {
+const DisplayEntry = ({ id, getInfo, info }) => {
   const classes = useStyles();
+
+  useEffect(() => {
+    getInfo(id);
+  }, [getInfo, id]);
+
   return (
     <div className={classes.displayEntry}>
       <div className={classes.bannerContainer}>
@@ -35,7 +43,7 @@ const DisplayEntry = () => {
         <RightTopInfo />
       </div>
       <div className={classes.entryOverview}>
-        <LeftOverview />
+        <LeftOverview info={info} />
         <div className={classes.rightOverview}>
           <div className={classes.relations}>
             <Typography variant="subtitle1">Relations</Typography>
@@ -78,4 +86,8 @@ const DisplayEntry = () => {
   );
 };
 
-export default DisplayEntry;
+const mapStateToProps = (state) => ({
+  info: state.infoState.infoList.Media
+});
+
+export default connect(mapStateToProps, { getInfo })(DisplayEntry);

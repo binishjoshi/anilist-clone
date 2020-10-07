@@ -2,11 +2,19 @@ import React, { Fragment } from 'react';
 import uniqid from 'uniqid';
 import { Typography } from '@material-ui/core';
 
-import { tags, fakeData } from './data';
+import { tags, fakeData, createData } from './data';
 import { useStyles } from './styles';
 
-const LeftOverview = () => {
+const LeftOverview = ({ info }) => {
   const classes = useStyles();
+  let data = {};
+
+  if (typeof (info) != "undefined") {
+    data = createData(info);
+  } else {
+    data = fakeData;
+  }
+
   return (
     <div className={classes.leftOverview}>
       <div className={classes.rank}>
@@ -17,11 +25,11 @@ const LeftOverview = () => {
       </div>
       <div className={classes.info}>
         {
-          Object.keys(fakeData).map(key => {
+          Object.keys(data).map(key => {
             return (
               <Fragment key={uniqid()}>
                 <Typography variant="subtitle1">{key}</Typography>
-                <Typography variant="body2">{fakeData[key]}</Typography>
+                <Typography variant="body2">{data[key]}</Typography>
               </Fragment>
             )
           })

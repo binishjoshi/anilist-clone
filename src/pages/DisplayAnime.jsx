@@ -2,10 +2,10 @@ import React from 'react';
 
 import DisplayEntry from '../components/DisplayEntry/DisplayEntry';
 
-const DisplayAnime = () => {
+const DisplayAnime = ({ match }) => {
   return (
     <div>
-      <DisplayEntry />
+      <DisplayEntry id={match.params.id} />
     </div>
   );
 };

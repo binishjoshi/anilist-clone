@@ -12,7 +12,6 @@ const TopAnimeList = ({ getTop, top, number }) => {
   const classes = useStyles();
 
   useEffect(() => {
-    console.log('number is ' + String(number));
     getTop('ANIME', number);
   }, [getTop, number]);
 

@@ -1,23 +1,53 @@
+import React from 'react';
+import Skeleton from '@material-ui/lab/Skeleton';
+
+const Loading = <Skeleton animation="wave" />;
+
 export const fakeData = {
-  'Format': 'TV',
-  'Episodes': '51',
-  'Episode Duration': '24 mins',
-  'Status': 'Finished',
-  'Start Date': 'Apr 8, 2015',
-  'End Date': 'Mar 30, 2016',
-  'Season': 'Spring 2015',
-  'Average Score': '89%',
-  'Mean Score': '90%',
-  'Popularity': '38518',
-  'Favorites': '1861',
-  'Studios': 'Bandai Namco Pictures',
-  'Source': 'Manga',
-  'Hashtag': '#gintama',
-  'Genres': 'Action, Comedy, Drama, Sci-Fi',
-  'Romaji': 'Gintama°',
-  'English': 'Gintama Season 4',
-  'Native': '銀魂°',
+  'Format': Loading,
+  'Episodes': Loading,
+  'Episode Duration': Loading,
+  'Status': Loading,
+  'Start Date': Loading,
+  'End Date': Loading,
+  'Season': Loading,
+  'Average Score': Loading,
+  'Mean Score': Loading,
+  'Popularity': Loading,
+  'Favorites': Loading,
+  'Studios': Loading,
+  'Source': Loading,
+  'Hashtag': Loading,
+  'Genres': Loading,
+  'Romaji': Loading,
+  'English': Loading,
+  'Native': Loading,
 };
+
+export const createData = (info) => {
+  console.log(info);
+
+  return ({
+    'Format': info.format,
+    'Episodes': info.episodes,
+    'Episode Duration': `${info.duration} mins`,
+    'Status': info.status,
+    'Start Date': `${info.startDate.year}/${info.startDate.month}/${info.startDate.day}`,
+    'End Date': `${info.endDate.year}/${info.endDate.month}/${info.endDate.day}`,
+    'Season': `${info.season} ${info.startDate.year}`,
+    'Average Score': `${info.averageScore}%`,
+    'Mean Score': `${info.meanSocre}%`,
+    'Popularity': info.popularity,
+    'Favorites': '1861',
+    'Studios': 'Bandai Namco Pictures',
+    'Source': info.source,
+    'Hashtag': info.hashtag,
+    'Genres': info.genres[0],
+    'Romaji': info.title.romaji,
+    'English': info.title.english,
+    'Native': info.title.native,
+  })
+}
 
 export const tags = {
   'Meta': '86%',

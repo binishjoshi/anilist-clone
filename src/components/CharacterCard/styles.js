@@ -8,6 +8,11 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: '3px',
     overflow: 'hidden',
     color: '#9fadbd',
+    minHeight: '80px',
+    width: '371px',
+    "& a": {
+      textDecoration: 'none',
+    },
   },
   character: {
     display: 'flex',
@@ -58,5 +63,8 @@ export const useStyles = makeStyles((theme) => ({
       fontSize: '0.7rem',
       marginLeft: 'auto',
     },
-  }
+  },
+  loading: {
+    marginLeft: '30px',
+  },
 }));

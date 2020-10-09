@@ -23,6 +23,22 @@ import ScoreDistribution from '../ScoreDistribution/ScoreDistribution';
 const DisplayEntry = ({ id, getInfo, info }) => {
   const classes = useStyles();
 
+  const renderCharacters = () => {
+    let characters = {};
+
+    if (typeof (info) != "undefined") {
+      characters = info.characters.edges;
+      
+      return characters.map(character => {
+        return (
+          <CharacterCard key={uniqid()} characterInfo={character} />
+        )
+      });
+    } else {
+      return (<CharacterCard loading={true} />)
+    }
+  }
+
   useEffect(() => {
     getInfo(id);
   }, [getInfo, id]);
@@ -63,9 +79,9 @@ const DisplayEntry = ({ id, getInfo, info }) => {
           <div className={classes.characters}>
             <Typography variant="subtitle1">Characters</Typography>
             <div className={classes.characterContainer}>
-              <CharacterCard />
-              <CharacterCard />
-              <CharacterCard />
+              {
+                renderCharacters()
+              }
             </div>
           </div>
           <div className={classes.staff}>

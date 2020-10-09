@@ -25,8 +25,6 @@ export const fakeData = {
 };
 
 export const createData = (info) => {
-  console.log(info);
-
   return ({
     'Format': info.format,
     'Episodes': info.episodes,
@@ -36,7 +34,7 @@ export const createData = (info) => {
     'End Date': `${info.endDate.year}/${info.endDate.month}/${info.endDate.day}`,
     'Season': `${info.season} ${info.startDate.year}`,
     'Average Score': `${info.averageScore}%`,
-    'Mean Score': `${info.meanSocre}%`,
+    'Mean Score': `${info.meanScore}%`,
     'Popularity': info.popularity,
     'Favorites': '1861',
     'Studios': 'Bandai Namco Pictures',

@@ -8,6 +8,9 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: '3px',
     overflow: 'hidden',
     color: '#9fadbd',
+    "& a": {
+      textDecoration: 'none',
+    },
   },
   staff: {
     display: 'flex',

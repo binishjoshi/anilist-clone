@@ -8,7 +8,6 @@ export const getInfo = (id) => (dispatch) => {
       Media (id: $id, type: ANIME) {
         id
         source
-        averageScore
         meanScore
         format
         episodes
@@ -51,7 +50,9 @@ export const getInfo = (id) => (dispatch) => {
                     }
                 }
             }
-        }
+          }
+        averageScore
+        isAdult        
       }
     }
   `;

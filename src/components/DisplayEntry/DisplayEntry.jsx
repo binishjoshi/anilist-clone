@@ -28,7 +28,7 @@ const DisplayEntry = ({ id, getInfo, info }) => {
 
     if (typeof (info) != "undefined") {
       characters = info.characters.edges;
-      
+
       return characters.map(character => {
         return (
           <CharacterCard key={uniqid()} characterInfo={character} />
@@ -38,6 +38,22 @@ const DisplayEntry = ({ id, getInfo, info }) => {
       return (<CharacterCard loading={true} />)
     }
   }
+
+  const renderStaff = () => {
+    let staff = {};
+
+    if (typeof (info) != "undefined") {
+      staff = info.staff.nodes;
+
+      return staff.map(s => {
+        return (
+          <StaffCard key={uniqid()} staffInfo={s} />
+        );
+      });
+    } else {
+      return (<StaffCard />)
+    }
+  };
 
   useEffect(() => {
     getInfo(id);
@@ -87,9 +103,9 @@ const DisplayEntry = ({ id, getInfo, info }) => {
           <div className={classes.staff}>
             <Typography variant="subtitle1">Staff</Typography>
             <div className={classes.staffContainer}>
-              <StaffCard />
-              <StaffCard />
-              <StaffCard />
+              {
+                renderStaff()
+              }
             </div>
           </div>
           <div className={classes.chartsContainer}>

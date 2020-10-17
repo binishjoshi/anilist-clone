@@ -51,6 +51,15 @@ export const getInfo = (id) => (dispatch) => {
                 }
             }
           }
+        staff(page: 1) {
+          nodes {
+            id
+            name {
+              first
+              last
+            }
+          }
+        }
         averageScore
         isAdult        
       }

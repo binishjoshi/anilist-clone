@@ -22,9 +22,9 @@ const CharacterCard = ({ characterInfo, loading }) => {
             <img alt="gintoki_va" src={gintoki_va} />
           </div>
         </Link>
-      )
+      );
     }
-  }
+  };
 
   if (typeof (characterInfo) != "undefined") {
     return (

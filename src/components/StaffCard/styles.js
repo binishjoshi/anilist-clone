@@ -36,4 +36,7 @@ export const useStyles = makeStyles((theme) => ({
       fontSize: '0.7rem',
     },
   },
+  loading: {
+    height: '60px',
+  },
 }));

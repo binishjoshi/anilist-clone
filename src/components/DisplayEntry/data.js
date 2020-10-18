@@ -47,20 +47,13 @@ export const createData = (info) => {
   })
 }
 
-export const tags = {
-  'Meta': '86%',
-  'Parody': '85%',
-  'Shounen': '85%',
-  'Samurai': '80%',
-  'Swordplay': '76%',
-  'Male Protagonist': '72%',
-  'Aliens': '71%',
-  'Ninja': '70%',
-  'Anachronism': '60%',
-  'Historical': '48%',
-  'Space': '48%',
-  'Primary Adult Cast': '40%',
-  'LGBTQ Issues': '30%',
+export const fetchTags = (info) => {
+  let tagArray = info.tags;
+  let tags = {};
+  for (let i = 0; i < tagArray.length; i++) {
+    tags[tagArray[i].name] = `${tagArray[i].rank}%`;
+  }
+  return tags;
 };
 
 export const relations = [

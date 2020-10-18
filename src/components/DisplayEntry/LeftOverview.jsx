@@ -2,17 +2,20 @@ import React, { Fragment } from 'react';
 import uniqid from 'uniqid';
 import { Typography } from '@material-ui/core';
 
-import { tags, fakeData, createData } from './data';
+import { fakeData, fetchTags, createData } from './data';
 import { useStyles } from './styles';
 
 const LeftOverview = ({ info }) => {
   const classes = useStyles();
   let data = {};
+  let tags = {};
 
   if (typeof (info) != "undefined") {
     data = createData(info);
+    tags = fetchTags(info);
   } else {
     data = fakeData;
+    tags = [];
   }
 
   return (
@@ -37,10 +40,6 @@ const LeftOverview = ({ info }) => {
       </div>
       <div className={classes.tags}>
         <Typography variant="body1">Tags</Typography>
-        <div className={classes.tag}>
-          <Typography variant="body1">Meta</Typography>
-          <Typography variant="body1">86%</Typography>
-        </div>
         {
           Object.keys(tags).map(key => {
             return (

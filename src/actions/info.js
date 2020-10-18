@@ -61,7 +61,12 @@ export const getInfo = (id) => (dispatch) => {
           }
         }
         averageScore
-        isAdult        
+        isAdult
+        tags {
+          name
+          rank
+          isMediaSpoiler
+        }
       }
     }
   `;

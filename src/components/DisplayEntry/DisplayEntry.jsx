@@ -28,8 +28,25 @@ const DisplayEntry = ({ id, getInfo, info }) => {
 
     if (typeof (info) != "undefined") {
       characters = info.characters.edges;
+      console.log(characters);
+      let mainChara = [];
+      let tempChara = [...characters];
 
-      return characters.map(character => {
+      for (let i = 0; i < tempChara.length; i++) {
+        let role = tempChara[i].role;
+        if (role === 'MAIN') {
+          console.log('Main chara found');
+          mainChara.push(tempChara[i]);
+          tempChara.splice(i, 1);
+        }
+      }
+
+      console.log('Main Chara');
+      console.log(mainChara);
+      let newChara = [...mainChara, ...tempChara];
+      console.log(newChara);
+
+      return newChara.slice(0, 6).map(character => {
         return (
           <CharacterCard key={uniqid()} characterInfo={character} />
         )
@@ -45,7 +62,7 @@ const DisplayEntry = ({ id, getInfo, info }) => {
     if (typeof (info) != "undefined") {
       staff = info.staff.nodes;
 
-      return staff.map(s => {
+      return staff.slice(0, 6).map(s => {
         return (
           <StaffCard key={uniqid()} staffInfo={s} />
         );

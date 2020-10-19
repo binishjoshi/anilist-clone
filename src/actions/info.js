@@ -67,6 +67,11 @@ export const getInfo = (id) => (dispatch) => {
           rank
           isMediaSpoiler
         }
+        bannerImage
+        coverImage {
+          large
+        }
+        description(asHtml: false)
       }
     }
   `;

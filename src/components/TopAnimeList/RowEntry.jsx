@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Skeleton from '@material-ui/lab/Skeleton';
 
 import { rowStyles, genreStyles } from './styles';
-import gintama from '../../img/gintama.png';
 import { Typography } from '@material-ui/core';
 
 const RowEntry = ({ anime, rank, isLoading }) => {
@@ -13,6 +12,15 @@ const RowEntry = ({ anime, rank, isLoading }) => {
   const lower = (value) => {
     value = value.toLowerCase();
     return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
+  const ImageCard = () => {
+    if (typeof (anime) !== "undefined") {
+      let cover = anime.coverImage.medium;
+      let imageAlt = anime.title.romaji;
+      imageAlt = imageAlt.toLowerCase() + '_cover';
+      return (<img alt={imageAlt} src={cover} />);
+    }    
   }
 
   const load = () => {
@@ -25,7 +33,7 @@ const RowEntry = ({ anime, rank, isLoading }) => {
     } else {
       return (
         <div className={classes.rowInfo}>
-          <img alt="gintama" src={gintama} />
+          <ImageCard />
           <div className={classes.name}>
             <Link to={`/anime/${anime.id}`}><Typography>{anime.title.romaji}</Typography></Link>
             <div className={classes.genres} style={genreStyles}>

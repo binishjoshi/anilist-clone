@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
-
-import { getInfo } from '../../actions/info';
-
-import { useStyles } from './styles';
-import gintamaBanner from '../../img/gintama-banner.jpg';
-import gintama from '../../img/gintama.png';
-import { Typography } from '@material-ui/core';
-
-import { relations } from './data';
 import CharacterCard from '../CharacterCard/CharacterCard';
 import StaffCard from '../StaffCard/StaffCard';
 import RightTopInfo from './RightTopInfo';
 import LeftOverview from './LeftOverview';
 import StatusDistribution from '../StatusDistribution/StatusDistrubution';
 import ScoreDistribution from '../ScoreDistribution/ScoreDistribution';
+import Skeleton from '@material-ui/lab/Skeleton';
+
+import { getInfo } from '../../actions/info';
+
+import { useStyles } from './styles';
+import gintama from '../../img/gintama.png';
+import { Typography } from '@material-ui/core';
+
+import { relations } from './data';
 
 const DisplayEntry = ({ id, getInfo, info }) => {
   const classes = useStyles();
@@ -28,23 +28,18 @@ const DisplayEntry = ({ id, getInfo, info }) => {
 
     if (typeof (info) != "undefined") {
       characters = info.characters.edges;
-      console.log(characters);
       let mainChara = [];
       let tempChara = [...characters];
 
       for (let i = 0; i < tempChara.length; i++) {
         let role = tempChara[i].role;
         if (role === 'MAIN') {
-          console.log('Main chara found');
           mainChara.push(tempChara[i]);
           tempChara.splice(i, 1);
         }
       }
 
-      console.log('Main Chara');
-      console.log(mainChara);
       let newChara = [...mainChara, ...tempChara];
-      console.log(newChara);
 
       return newChara.slice(0, 6).map(character => {
         return (
@@ -76,14 +71,32 @@ const DisplayEntry = ({ id, getInfo, info }) => {
     getInfo(id);
   }, [getInfo, id]);
 
+  const ImageCard = ({ type }) => {
+    if (typeof (info) != "undefined") {
+      let imageAlt = info.title.romaji;
+      imageAlt = imageAlt.toLowerCase();
+      if (type === 'banner') {
+        let banner = info.bannerImage;
+        imageAlt = imageAlt + '_banner';
+        return (<img alt={imageAlt} src={banner} />);
+      } else {
+        let cover = info.coverImage.large;
+        imageAlt = imageAlt + '_cover';
+        return (<img alt={imageAlt} src={cover} />);
+      }
+    } else {
+      return (<Skeleton animation="wave" />)
+    }
+  }
+
   return (
     <div className={classes.displayEntry}>
       <div className={classes.bannerContainer}>
-        <img alt="gintama-banner" src={gintamaBanner} />
+        <ImageCard type='banner' />
       </div>
       <div className={classes.description}>
         <div className={classes.leftInfo}>
-          <img alt="gintama" src={gintama} />
+          <ImageCard type='cover' />
           <div className={classes.buttonContainer}>
             <button>Add to List</button>
             <button><FavoriteIcon /></button>

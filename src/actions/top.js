@@ -27,6 +27,9 @@ export const getTop = (type, number) => (dispatch) => {
         duration
         popularity
         episodes
+        coverImage {
+          medium
+        }
       }
     }
   }`

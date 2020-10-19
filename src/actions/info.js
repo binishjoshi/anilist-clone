@@ -40,6 +40,9 @@ export const getInfo = (id) => (dispatch) => {
                         first
                         last
                     }
+                    image {
+                      medium
+                    }
                 }
                 role
                 voiceActors {
@@ -47,6 +50,9 @@ export const getInfo = (id) => (dispatch) => {
                     name {
                         first
                         last
+                    }
+                    image {
+                      medium
                     }
                 }
             }
@@ -57,6 +63,9 @@ export const getInfo = (id) => (dispatch) => {
             name {
               first
               last
+            }
+            image {
+              medium
             }
           }
         }

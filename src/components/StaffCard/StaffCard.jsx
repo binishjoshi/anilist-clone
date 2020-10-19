@@ -10,11 +10,13 @@ const StaffCard = ({ staffInfo }) => {
   const classes = useStyles();
 
   if (typeof (staffInfo) != "undefined") {
+    let imageAlt = staffInfo.name.first;
+    imageAlt = imageAlt.toLowerCase() + '_picture';
     return (
       <div className={classes.staffCard}>
         <Link>
           <div className={classes.staff}>
-            <img alt="gintoki" src={gintoki} />
+            <img alt={imageAlt} src={staffInfo.image.medium} />
             <div className={classes.staffText}>
               <Typography variant="body2">{staffInfo.name.last} {staffInfo.name.first}</Typography>
             </div>

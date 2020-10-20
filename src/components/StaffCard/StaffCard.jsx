@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-import gintoki from '../../img/gintoki.jpg';
 import { useStyles } from './styles';
 
 const StaffCard = ({ staffInfo }) => {

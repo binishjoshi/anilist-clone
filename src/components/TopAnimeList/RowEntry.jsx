@@ -20,7 +20,7 @@ const RowEntry = ({ anime, rank, isLoading }) => {
       let imageAlt = anime.title.romaji;
       imageAlt = imageAlt.toLowerCase() + '_cover';
       return (<img alt={imageAlt} src={cover} />);
-    }    
+    }
   }
 
   const load = () => {

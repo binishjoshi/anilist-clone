@@ -18,9 +18,10 @@ const RightTopInfo = ({ info }) => {
   }
   return (
     <div className={classes.rightInfo}>
-      <Typography variant="h5">{title}</Typography>
-      <Typography variant="body2">{description}
-      </Typography>
+      <div className={classes.textContainer}>
+        <Typography variant="h5">{title}</Typography>
+        <Typography variant="body2">{description}</Typography>
+      </div>
       <div className={classes.tabContainer}>
         <Link >
           <Typography variant="body2">Overview</Typography>

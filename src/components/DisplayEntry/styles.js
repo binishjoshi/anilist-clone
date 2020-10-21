@@ -53,6 +53,11 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   rightInfo: {
+    display: 'grid',
+    gridTemplateRows: '60% 10%',
+  },
+  textContainer: {
+    overflow: 'hidden',
     "& h5": {
       paddingTop: '15px',
     },
@@ -64,7 +69,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'grid',
     gridTemplateColumns: 'repeat(7, 13.75%)',
     justifyItems: 'center',
-    paddingTop: '7.5%',
+    paddingTop: '3.5%',
     "& a": {
       textDecoration: 'none',
       color: 'inherit',

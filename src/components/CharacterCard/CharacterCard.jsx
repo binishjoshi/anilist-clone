@@ -9,9 +9,9 @@ const CharacterCard = ({ characterInfo, loading }) => {
   const classes = useStyles();
 
   const renderVA = () => {
-    let imageAlt = characterInfo.voiceActors[0].name.first;
-    imageAlt = imageAlt.toLowerCase() + '_picture';
     if (typeof (characterInfo.voiceActors[0]) != "undefined") {
+      let imageAlt = characterInfo.voiceActors[0].name.first;
+      imageAlt = imageAlt.toLowerCase() + '_picture';
       return (
         <Link>
           <div className={classes.voice}>

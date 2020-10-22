@@ -15,10 +15,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import { getInfo } from '../../actions/info';
 
 import { useStyles } from './styles';
-import gintama from '../../img/gintama.png';
 import { Typography } from '@material-ui/core';
-
-import { relations } from './data';
 
 const DisplayEntry = ({ id, getInfo, info }) => {
   const classes = useStyles();
@@ -67,6 +64,23 @@ const DisplayEntry = ({ id, getInfo, info }) => {
     }
   };
 
+  const renderRelations = () => {
+    if (typeof (info) != "undefined") {
+      const relations = info.relations.edges;
+
+      return relations.map(relation => (
+        <Link className={classes.relation} key={uniqid()} to={`/anime/${relation.node.id}`} >
+          <img alt="gintama" src={relation.node.coverImage.medium} />
+          <div className={classes.relationText}>
+            <Typography variant="body2">{relation.relationType}</Typography>
+          </div>
+        </Link>
+      ));
+    } else {
+      return (<Skeleton animation="wave" />)
+    }
+  };
+
   useEffect(() => {
     getInfo(id);
   }, [getInfo, id]);
@@ -110,7 +124,7 @@ const DisplayEntry = ({ id, getInfo, info }) => {
           <div className={classes.relations}>
             <Typography variant="subtitle1">Relations</Typography>
             <div className={classes.relationContainer}>
-              {
+              {/* {
                 relations.map(relation => (
                   <Link className={classes.relation} key={uniqid()} to="/anime/id" >
                     <img alt="gintama" src={gintama} />
@@ -119,6 +133,9 @@ const DisplayEntry = ({ id, getInfo, info }) => {
                     </div>
                   </Link>
                 ))
+              } */}
+              {
+                renderRelations()
               }
             </div>
           </div>

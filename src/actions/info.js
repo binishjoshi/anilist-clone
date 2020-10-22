@@ -81,6 +81,21 @@ export const getInfo = (id) => (dispatch) => {
           large
         }
         description(asHtml: false)
+        relations {
+          edges {
+            node {
+              id
+              type
+              title {
+                romaji
+              }
+              coverImage {
+                medium
+              }
+            }
+            relationType
+          }
+        }
       }
     }
   `;

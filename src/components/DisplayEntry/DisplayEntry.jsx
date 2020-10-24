@@ -123,17 +123,7 @@ const DisplayEntry = ({ id, getInfo, info }) => {
         <div className={classes.rightOverview}>
           <div className={classes.relations}>
             <Typography variant="subtitle1">Relations</Typography>
-            <div className={classes.relationContainer}>
-              {/* {
-                relations.map(relation => (
-                  <Link className={classes.relation} key={uniqid()} to="/anime/id" >
-                    <img alt="gintama" src={gintama} />
-                    <div className={classes.relationText}>
-                      <Typography variant="body2">{relation}</Typography>
-                    </div>
-                  </Link>
-                ))
-              } */}
+            <div className={classes.relationContainer}>              
               {
                 renderRelations()
               }

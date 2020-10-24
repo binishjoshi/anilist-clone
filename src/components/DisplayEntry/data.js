@@ -55,12 +55,3 @@ export const fetchTags = (info) => {
   }
   return tags;
 };
-
-export const relations = [
-  'Source',
-  'Prequel',
-  'Prequel',
-  'Sequel',
-  'SideStory',
-  'SideStory',
-];

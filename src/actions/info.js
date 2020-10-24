@@ -96,6 +96,16 @@ export const getInfo = (id) => (dispatch) => {
             relationType
           }
         }
+        stats {
+          scoreDistribution {
+            score
+            amount
+          }
+          statusDistribution {
+            status
+            amount
+          }
+        }
       }
     }
   `;

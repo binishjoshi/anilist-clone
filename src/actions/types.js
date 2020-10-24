@@ -4,3 +4,4 @@ export const GET_INFO = 'GET_INFO';
 export const GET_SEASON = 'GET_SEASON';
 export const GET_POPULAR = 'GET_POPULAR';
 export const GET_NEXT = 'GET_NEXT';
+export const GET_TRENDING = 'GET_TRENDING';

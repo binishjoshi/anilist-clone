@@ -11,7 +11,6 @@ const StatusDistribution = ({ infoState }) => {
   const classes = useStyles();
   if (typeof (infoState) !== "undefined") {
     let status = infoState.stats.statusDistribution;
-    console.log(status);
     status.splice(3, 1);
     return (
       <div className={classes.statusContainer}>

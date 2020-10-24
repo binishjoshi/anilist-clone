@@ -18,12 +18,13 @@ const SearchAnime = ({ getTrending, trending }) => {
     getTrending('season', 5);
     getTrending('popular', 5);
     getTrending('next', 5);
+    getTrending('trending', 5);
   }, [getTrending,]);
 
   return (
     <div style={style}>
       <SearchOption />
-      {/* <DisplayRow type="" heading="Trending Now" /> */}
+      <DisplayRow type="trending" heading="Trending Now" />
       <DisplayRow type="seasonTrending" heading="Popular This Season" />
       <DisplayRow type="nextSeason" heading="Upcoming Next Season" />
       <DisplayRow type="popular" heading="All Time Popular" />

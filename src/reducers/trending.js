@@ -1,4 +1,4 @@
-import { GET_SEASON, GET_NEXT, GET_POPULAR } from '../actions/types';
+import { GET_SEASON, GET_NEXT, GET_POPULAR, GET_TRENDING } from '../actions/types';
 
 const initialState = {};
 
@@ -19,6 +19,11 @@ export default function (state = initialState, action) {
         ...state,
         popular: action.payload
       }
+    case GET_TRENDING:
+      return {
+        ...state,
+        trending: action.payload
+      };
     default:
       return state;
   };

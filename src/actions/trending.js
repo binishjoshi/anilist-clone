@@ -1,13 +1,14 @@
 import axios from 'axios';
 
-import { GET_SEASON, GET_POPULAR, GET_NEXT, END_POINT } from './types';
+import { GET_SEASON, GET_POPULAR, GET_NEXT, END_POINT, GET_TRENDING } from './types';
 
 export const getTrending = (type = 'season', number) => (dispatch) => {
   let args;
 
-  if (type === 'season') args = ', seasonYear: 2020, season: FALL'
-  else if (type === 'popular') args = ''
-  else if (type === 'next') args = ', seasonYear: 2021, season: WINTER';
+  if (type === 'season') args = ', seasonYear: 2020, season: FALL, sort: POPULARITY_DESC'
+  else if (type === 'popular') args = ', sort: POPULARITY_DESC'
+  else if (type === 'next') args = ', seasonYear: 2021, season: WINTER, sort: POPULARITY_DESC';
+  else if (type === 'trending') args = ', sort: TRENDING_DESC';
 
   const seasonPopularQuery = `query ($page: Int, $perPage: Int) {
     Page (page: $page, perPage: $perPage) {
@@ -18,7 +19,7 @@ export const getTrending = (type = 'season', number) => (dispatch) => {
         hasNextPage
         perPage
       }
-      media (sort: POPULARITY_DESC, type: ANIME${args}) {
+      media (type: ANIME${args}) {
         id
         title {
           english
@@ -56,6 +57,13 @@ export const getTrending = (type = 'season', number) => (dispatch) => {
           type: GET_NEXT,
           payload: res.data
         })
+      }
+      // Trending Anime
+      else if (type === 'trending') {
+        dispatch({
+          type: GET_TRENDING,
+          payload: res.data
+        });
       }
     })
     .catch(err => console.log(err))

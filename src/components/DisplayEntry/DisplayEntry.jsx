@@ -91,8 +91,11 @@ const DisplayEntry = ({ id, getInfo, info }) => {
       imageAlt = imageAlt.toLowerCase();
       if (type === 'banner') {
         let banner = info.bannerImage;
-        imageAlt = imageAlt + '_banner';
-        return (<img alt={imageAlt} src={banner} />);
+        if (banner !== null){
+          imageAlt = imageAlt + '_banner';
+          return (<img alt={imageAlt} src={banner} />);
+        }
+        return (null);
       } else {
         let cover = info.coverImage.large;
         imageAlt = imageAlt + '_cover';

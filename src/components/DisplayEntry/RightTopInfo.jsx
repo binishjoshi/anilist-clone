@@ -8,9 +8,10 @@ import Skeleton from '@material-ui/lab/Skeleton';
 
 const RightTopInfo = ({ info }) => {
   const classes = useStyles();
-  let title, description
+  let title, description;
   if (typeof (info) !== "undefined") {
     title = info.title.english;
+    if (title === null) title = info.title.romaji;
     description = info.description;
   } else {
     title = <Skeleton animation="wave" />

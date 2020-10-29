@@ -21,7 +21,7 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={darkTheme}>
         <Header />
-        <div>
+        <div style={{minHeight: '80vh'}}>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/search/anime' component={SearchAnime} />

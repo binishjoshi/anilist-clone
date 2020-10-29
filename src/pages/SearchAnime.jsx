@@ -12,8 +12,8 @@ import RowEntry from '../components/TopAnimeList/RowEntry';
 import { Button } from '@material-ui/core';
 
 const style = {
-  marginRight: '10%',
-  marginLeft: '8%',
+  marginRight: '8%',
+  marginLeft: '10%',
   marginTop: '30px',
 }
 

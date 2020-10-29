@@ -6,6 +6,10 @@ export const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: 'auto 42px',
     gridGap: '10px',
+    paddingLeft: 0,
+    paddingRight: '4%',
+    marginBottom: '20px',
+    marginTop: '6%',
   },
   searchBoxesContainer: {
     display: 'grid',

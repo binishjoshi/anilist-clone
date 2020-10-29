@@ -1,20 +1,42 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import uniqid from 'uniqid';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+import { putQuery } from '../../actions/search';
+import { PUT_FORMAT, PUT_GENRE, PUT_SEASON, PUT_YEAR } from '../../actions/types';
+
 import { useStyles, dropdownStyle } from './styles';
 
 import data from './data';
 
-const DropDown = ({ optionData }) => {
+const DropDown = ({ optionData, putQuery }) => {
   const classes = useStyles();
   const [option, setOption] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
     setOption(event.target.value);
+    
+    switch (optionData) {
+      case 'genres':
+        putQuery(PUT_GENRE, event.target.value);
+        break;
+      case 'year':
+        putQuery(PUT_YEAR, event.target.value);
+        break;
+      case 'season':
+        putQuery(PUT_SEASON, event.target.value);
+        break;
+      case 'format':
+        putQuery(PUT_FORMAT, event.target.value);
+        break;
+      default:
+        console.log('Error in search query');
+        break;
+    }
   };
 
   const handleClose = () => {
@@ -60,4 +82,4 @@ const DropDown = ({ optionData }) => {
   );
 };
 
-export default DropDown;
+export default connect(null, { putQuery })(DropDown);

@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqid from 'uniqid';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Typography } from '@material-ui/core';
@@ -14,7 +15,7 @@ const DisplayRow = ({ heading, trending, type }) => {
       let data = trending[type].data.Page.media;
       return data.map(entry => {
         return (
-          <Link to={`/anime/${entry.id}`}>
+          <Link to={`/anime/${entry.id}`} key={uniqid()}>
             <img alt="gintama" src={entry.coverImage.large}></img>
             <Typography variant="body2">{entry.title.english}</Typography>
           </Link>

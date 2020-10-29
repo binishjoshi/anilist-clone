@@ -14,7 +14,7 @@ export const useStyles = makeStyles({
   },
   input: {
     backgroundColor: '#151f2e',
-    padding: '16.5px 14px',
+    padding: '7.5px 14px',
     color: '#87a0b2',
     border: 'none',
     width: '80%',

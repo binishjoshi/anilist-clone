@@ -10,6 +10,7 @@ const RowEntry = ({ anime, rank, isLoading }) => {
   const classes = rowStyles();
 
   const lower = (value) => {
+    if (value === null) return value;
     value = value.toLowerCase();
     return value.charAt(0).toUpperCase() + value.slice(1);
   }

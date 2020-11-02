@@ -2,27 +2,27 @@ import axios from 'axios';
 
 import { PUT_FORMAT, PUT_SEASON, PUT_YEAR, PUT_GENRE, END_POINT, SEARCH_QUERY, SEARCH_STATUS, CLEAR_SEARCH } from './types';
 
-export const putQuery = (type, value) => (dispatch) => {
-  switch (type) {
-    case PUT_FORMAT:
+export const putQuery = (optionData, value) => (dispatch) => {
+  switch (optionData) {
+    case 'format':
       dispatch({
         type: PUT_FORMAT,
         payload: value,
       });
       break;
-    case PUT_SEASON:
+    case 'season':
       dispatch({
         type: PUT_SEASON,
         payload: value,
       });
       break;
-    case PUT_YEAR:
+    case 'year':
       dispatch({
         type: PUT_YEAR,
         payload: value,
       });
       break;
-    case PUT_GENRE:
+    case 'genres':
       dispatch({
         type: PUT_GENRE,
         payload: value,

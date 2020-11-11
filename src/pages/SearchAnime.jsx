@@ -14,7 +14,8 @@ import { Button } from '@material-ui/core';
 const style = {
   marginRight: '8%',
   marginLeft: '10%',
-  marginTop: '30px',
+  display: 'grid',
+  gridTemplateRows: '200px auto',
 }
 
 const SearchAnime = ({ getTrending, trending, searchData, clearSearch }) => {
@@ -62,9 +63,11 @@ const SearchAnime = ({ getTrending, trending, searchData, clearSearch }) => {
   return (
     <div style={style}>
       <SearchOption />
-      {
-        renderBody()
-      }
+      <div>
+        {
+          renderBody()
+        }        
+      </div>
     </div>
   );
 };

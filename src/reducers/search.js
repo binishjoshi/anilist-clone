@@ -2,6 +2,7 @@ import { PUT_GENRE, PUT_YEAR, PUT_FORMAT, PUT_SEASON, SEARCH_QUERY, SEARCH_STATU
 
 const initalState = {
   searchingStatus: 'notSearching',
+  searchConstraints: '',
 };
 
 export default function (state = initalState, action) {
@@ -9,22 +10,34 @@ export default function (state = initalState, action) {
     case PUT_GENRE:
       return {
         ...state,
-        'genre': action.payload
+        'searchConstraints': { 
+          ...state.searchConstraints,
+          'genre': action.payload
+        }
       };
     case PUT_YEAR:
       return {
         ...state,
-        'year': action.payload
+        'searchConstraints': {
+          ...state.searchConstraints,
+          'year': action.payload
+        }
       };
     case PUT_SEASON:
       return {
         ...state,
-        'season': action.payload
+        'searchConstraints': {
+          ...state.searchConstraints,
+          'season': action.payload
+        }
       };
     case PUT_FORMAT:
       return {
         ...state,
-        'format': action.payload
+        'searchConstraints': {
+          ...state.searchConstraints,
+          'format': action.payload
+        }
       };
     case SEARCH_QUERY:
       return {

@@ -16,6 +16,29 @@ export const useStyles = makeStyles({
     gridTemplateColumns: 'repeat(5,155px)',
     gridGap: '24px',
   },
+  searchConstraintsContainer: {
+    display: 'flex',
+    color: '#c9d7e3',
+    '& p': {
+      fontSize: '0.8rem',
+    }
+  },
+  constraintContainer: {
+    display: 'flex',
+    marginRight: '10px',
+    backgroundColor: '#0b70a4',
+    padding: '2px 7px 4px 7px',
+    borderRadius: '6px',
+    '&:hover': {
+      cursor: 'pointer',
+      '& svg': {
+        display: 'block',
+      }
+    },
+    '& svg': {
+      display: 'none',
+    }
+  },
   input: {
     backgroundColor: '#151f2e',
     padding: '7.5px 14px',

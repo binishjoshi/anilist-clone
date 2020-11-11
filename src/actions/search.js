@@ -22,7 +22,7 @@ export const putQuery = (optionData, value) => (dispatch) => {
         payload: value,
       });
       break;
-    case 'genres':
+    case 'genre':
       dispatch({
         type: PUT_GENRE,
         payload: value,

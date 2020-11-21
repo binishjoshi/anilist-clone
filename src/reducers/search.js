@@ -8,6 +8,12 @@ const initalState = {
 export default function (state = initalState, action) {
   switch (action.type) {
     case PUT_GENRE:
+      if (action.payload === '') {
+        delete state.searchConstraints.genre;
+        return {
+          ...state
+        }
+      }
       return {
         ...state,
         'searchConstraints': { 
@@ -16,6 +22,12 @@ export default function (state = initalState, action) {
         }
       };
     case PUT_YEAR:
+      if (action.payload === '') {
+        delete state.searchConstraints.year;
+        return {
+          ...state
+        }
+      }
       return {
         ...state,
         'searchConstraints': {
@@ -24,6 +36,12 @@ export default function (state = initalState, action) {
         }
       };
     case PUT_SEASON:
+      if (action.payload === '') {
+        delete state.searchConstraints.season;
+        return {
+          ...state
+        }
+      }
       return {
         ...state,
         'searchConstraints': {
@@ -32,6 +50,12 @@ export default function (state = initalState, action) {
         }
       };
     case PUT_FORMAT:
+      if (action.payload === '') {
+        delete state.searchConstraints.format;
+        return {
+          ...state
+        }
+      }
       return {
         ...state,
         'searchConstraints': {

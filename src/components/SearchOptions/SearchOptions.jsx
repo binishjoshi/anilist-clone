@@ -24,7 +24,8 @@ const SearchOption = ({ searchQuery, searchState, putQuery }) => {
 
   const onFormSubmit = e => {
     e.preventDefault();
-    searchQuery(inputValue, '');
+    console.log(searchConstraints);
+    searchQuery({ search: inputValue, ...searchConstraints });
   };
 
   const renderSearchConstraints = () => {

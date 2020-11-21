@@ -34,13 +34,13 @@ export const putQuery = (optionData, value) => (dispatch) => {
   }
 };
 
-export const searchQuery = (keyword, otherQueries) => (dispatch) => {
+export const searchQuery = (searchQueries) => (dispatch) => {
   dispatch({
     type: SEARCH_STATUS,
     payload: 'searching'
   });
   const graphqlQuery = `
-    query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+    query ($id: Int, $page: Int, $perPage: Int, $search: String, $season: MediaSeason, $seasonYear: Int, $genre: String, $format: MediaFormat) {
       Page (page: $page, perPage: $perPage) {
         pageInfo {
           total
@@ -49,7 +49,7 @@ export const searchQuery = (keyword, otherQueries) => (dispatch) => {
           hasNextPage
           perPage
         }
-        media (id: $id, search: $search) {
+        media (id: $id, search: $search, season: $season, seasonYear: $seasonYear, genre: $genre, format: $format, sort: POPULARITY_DESC) {
           id
           title {
             romaji
@@ -73,9 +73,9 @@ export const searchQuery = (keyword, otherQueries) => (dispatch) => {
   `;
 
   const variables = {
-    "search": keyword,
     "perPage": 50,
-    "page": 1
+    "page": 1,
+    ...searchQueries
   };
 
   axios.post(END_POINT, { query: graphqlQuery, variables: variables })

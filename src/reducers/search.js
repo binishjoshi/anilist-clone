@@ -23,7 +23,7 @@ export default function (state = initalState, action) {
       };
     case PUT_YEAR:
       if (action.payload === '') {
-        delete state.searchConstraints.year;
+        delete state.searchConstraints.seasonYear;
         return {
           ...state
         }
@@ -32,7 +32,7 @@ export default function (state = initalState, action) {
         ...state,
         'searchConstraints': {
           ...state.searchConstraints,
-          'year': action.payload
+          'seasonYear': action.payload
         }
       };
     case PUT_SEASON:

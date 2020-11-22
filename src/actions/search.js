@@ -17,6 +17,7 @@ export const putQuery = (optionData, value) => (dispatch) => {
       });
       break;
     case 'year':
+    case 'seasonYear':
       dispatch({
         type: PUT_YEAR,
         payload: value,

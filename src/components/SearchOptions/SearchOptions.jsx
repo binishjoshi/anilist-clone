@@ -16,7 +16,18 @@ import DropDown from '../DropDown/DropDown';
 const SearchOption = ({ searchQuery, searchState, putQuery }) => {
   const classes = useStyles();
   const [inputValue, setInputValue] = React.useState('');
-  const { searchConstraints } = searchState;
+  // const { searchConstraints } = searchState;
+  // const [searchConstraints, changeSearchConstraints] = React.useState({});
+  const [genre, changeGenre] = React.useState('');
+  const [seasonYear, changeSeasonYear] = React.useState('');
+  const [season, changeSeason] = React.useState('');
+  const [format, changeFormat] = React.useState('');
+  let searchConstraints = {
+    genre: genre,
+    seasonYear: seasonYear,
+    season: season,
+    format: format
+  }
 
   const onFormChange = e => {
     setInputValue(e.target.value);
@@ -64,22 +75,22 @@ const SearchOption = ({ searchQuery, searchState, putQuery }) => {
 
           <div>
             <Typography>Genres</Typography>
-            <DropDown optionData='genre' />
+            <DropDown optionData='genre' changeSearchConstraints={changeGenre} />
           </div>
 
           <div>
             <Typography>Year</Typography>
-            <DropDown optionData='year' />
+            <DropDown optionData='year' changeSearchConstraints={changeSeasonYear} />
           </div>
 
           <div>
             <Typography>Season</Typography>
-            <DropDown optionData='season' />
+            <DropDown optionData='season' changeSearchConstraints={changeSeason} />
           </div>
 
           <div>
             <Typography>Format</Typography>
-            <DropDown optionData='format' />
+            <DropDown optionData='format' changeSearchConstraints={changeFormat} />
           </div>
         </div>
 

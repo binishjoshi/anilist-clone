@@ -11,15 +11,15 @@ import { useStyles, dropdownStyle } from './styles';
 
 import data from './data';
 
-const DropDown = ({ optionData, putQuery, searchQuery, searchState }) => {
+const DropDown = ({ optionData, putQuery, searchQuery, searchState, changeSearchConstraints }) => {
   const classes = useStyles();
   const [option, setOption] = React.useState('');
   const [open, setOpen] = React.useState(false);
-  const { searchConstraints } = searchState;
 
   const handleChange = (event) => {
     setOption(event.target.value);
-    putQuery(optionData, event.target.value);
+    // putQuery(optionData, event.target.value);
+    changeSearchConstraints(event.target.value);
   };
 
   const handleClose = () => {

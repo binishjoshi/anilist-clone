@@ -40,6 +40,7 @@ export const searchQuery = (searchQueries) => (dispatch) => {
     type: SEARCH_STATUS,
     payload: 'searching'
   });
+  console.log(searchQueries);
   const graphqlQuery = `
     query ($id: Int, $page: Int, $perPage: Int, $search: String, $season: MediaSeason, $seasonYear: Int, $genre: String, $format: MediaFormat) {
       Page (page: $page, perPage: $perPage) {

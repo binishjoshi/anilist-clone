@@ -3,6 +3,14 @@ import axios from 'axios';
 import { END_POINT, GET_TOP } from './types';
 
 export const getTop = (type, number) => (dispatch) => {
+  let args;
+
+  if (type === 'season') args = ', seasonYear: 2020, season: FALL, sort: POPULARITY_DESC'
+  else if (type === 'popular') args = ', sort: POPULARITY_DESC'
+  else if (type === 'next') args = ', seasonYear: 2021, season: WINTER, sort: POPULARITY_DESC';
+  else if (type === 'trending') args = ', sort: TRENDING_DESC';
+  else if (type === 'ratings') args =', sort: SCORE_DESC';
+
   const graphqlQuery = `query ($page: Int, $perPage: Int) {
     Page (page: $page, perPage: $perPage) {
       pageInfo {
@@ -12,7 +20,7 @@ export const getTop = (type, number) => (dispatch) => {
         hasNextPage
         perPage
       }
-      media (sort: SCORE_DESC, type: ${type}) {
+      media (type: ANIME${args}) {
         id
         title {
           romaji

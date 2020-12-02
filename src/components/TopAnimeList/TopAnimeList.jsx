@@ -12,7 +12,7 @@ const TopAnimeList = ({ getTop, top, number }) => {
   const classes = useStyles();
 
   useEffect(() => {
-    getTop('ANIME', number);
+    getTop('ratings', number);
   }, [getTop, number]);
 
   top = top.topState.top.Page

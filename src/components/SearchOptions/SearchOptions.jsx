@@ -7,17 +7,15 @@ import Button from '@material-ui/core/Button';
 import TuneIcon from '@material-ui/icons/Tune';
 import ClearIcon from '@material-ui/icons/Clear';
 
-import { searchQuery, putQuery } from '../../actions/search';
+import { searchQuery } from '../../actions/search';
 
 import { useStyles } from './styles';
 import { Typography } from '@material-ui/core';
 import DropDown from '../DropDown/DropDown';
 
-const SearchOption = ({ searchQuery, searchState, putQuery }) => {
+const SearchOption = ({ searchQuery }) => {
   const classes = useStyles();
   const [inputValue, setInputValue] = React.useState('');
-  // const { searchConstraints } = searchState;
-  // const [searchConstraints, changeSearchConstraints] = React.useState({});
   const [genre, changeGenre] = React.useState('');
   const [seasonYear, changeSeasonYear] = React.useState('');
   const [season, changeSeason] = React.useState('');
@@ -35,8 +33,12 @@ const SearchOption = ({ searchQuery, searchState, putQuery }) => {
 
   const onFormSubmit = e => {
     e.preventDefault();
-    console.log(searchConstraints);
-    searchQuery({ search: inputValue, ...searchConstraints });
+    let queries = searchConstraints;
+    Object.keys(queries).map(key => {
+      if (queries[key] === '') delete queries[key];
+      return (null);
+    })
+    searchQuery({ search: inputValue, ...queries });
   };
 
   const renderSearchConstraints = () => {
@@ -45,9 +47,19 @@ const SearchOption = ({ searchQuery, searchState, putQuery }) => {
         <div className={classes.searchConstraintsContainer}>
           {
             Object.keys(searchConstraints).map(key => {
+              let empty;
+              if (key === 'genre') {
+                empty = changeGenre;
+              } else if (key === 'seasonYear') {
+                empty = changeSeasonYear;
+              } else if (key === 'season') {
+                empty = changeSeason;
+              } else if (key === 'format') {
+                empty = changeFormat;
+              }
               if (searchConstraints[key] !== '') {
                 return (
-                  <div className={classes.constraintContainer} key={uniqid()} onClick={() => putQuery(key, '')}>
+                  <div className={classes.constraintContainer} key={uniqid()} onClick={() => empty('')}>
                     <Typography variant="body2">
                       {searchConstraints[key]}
                     </Typography>
@@ -75,22 +87,22 @@ const SearchOption = ({ searchQuery, searchState, putQuery }) => {
 
           <div>
             <Typography>Genres</Typography>
-            <DropDown optionData='genre' changeSearchConstraints={changeGenre} />
+            <DropDown optionData='genre' changeSearchConstraints={changeGenre} option={genre} />
           </div>
 
           <div>
             <Typography>Year</Typography>
-            <DropDown optionData='year' changeSearchConstraints={changeSeasonYear} />
+            <DropDown optionData='year' changeSearchConstraints={changeSeasonYear} option={seasonYear} />
           </div>
 
           <div>
             <Typography>Season</Typography>
-            <DropDown optionData='season' changeSearchConstraints={changeSeason} />
+            <DropDown optionData='season' changeSearchConstraints={changeSeason} option={season} />
           </div>
 
           <div>
             <Typography>Format</Typography>
-            <DropDown optionData='format' changeSearchConstraints={changeFormat} />
+            <DropDown optionData='format' changeSearchConstraints={changeFormat} option={format} />
           </div>
         </div>
 
@@ -109,4 +121,4 @@ const mapStateToProps = (state) => ({
   searchState: state.searchQuery
 });
 
-export default connect(mapStateToProps, { searchQuery, putQuery })(SearchOption);
+export default connect(mapStateToProps, { searchQuery })(SearchOption);

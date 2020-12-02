@@ -5,20 +5,15 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import { putQuery, searchQuery } from '../../actions/search';
-
 import { useStyles, dropdownStyle } from './styles';
 
 import data from './data';
 
-const DropDown = ({ optionData, putQuery, searchQuery, searchState, changeSearchConstraints }) => {
+const DropDown = ({ optionData, changeSearchConstraints, option }) => {
   const classes = useStyles();
-  const [option, setOption] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    setOption(event.target.value);
-    // putQuery(optionData, event.target.value);
     changeSearchConstraints(event.target.value);
   };
 
@@ -69,4 +64,4 @@ const mapStateToProps = (state) => ({
   searchState: state.searchQuery
 });
 
-export default connect(mapStateToProps, { putQuery, searchQuery })(DropDown);
+export default connect(mapStateToProps)(DropDown);

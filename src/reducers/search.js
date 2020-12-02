@@ -1,4 +1,4 @@
-import { PUT_GENRE, PUT_YEAR, PUT_FORMAT, PUT_SEASON, SEARCH_QUERY, SEARCH_STATUS, CLEAR_SEARCH } from '../actions/types';
+import { SEARCH_QUERY, SEARCH_STATUS, CLEAR_SEARCH } from '../actions/types';
 
 const initalState = {
   searchingStatus: 'notSearching',
@@ -7,62 +7,6 @@ const initalState = {
 
 export default function (state = initalState, action) {
   switch (action.type) {
-    case PUT_GENRE:
-      if (action.payload === '') {
-        delete state.searchConstraints.genre;
-        return {
-          ...state
-        }
-      }
-      return {
-        ...state,
-        'searchConstraints': { 
-          ...state.searchConstraints,
-          'genre': action.payload
-        }
-      };
-    case PUT_YEAR:
-      if (action.payload === '') {
-        delete state.searchConstraints.seasonYear;
-        return {
-          ...state
-        }
-      }
-      return {
-        ...state,
-        'searchConstraints': {
-          ...state.searchConstraints,
-          'seasonYear': action.payload
-        }
-      };
-    case PUT_SEASON:
-      if (action.payload === '') {
-        delete state.searchConstraints.season;
-        return {
-          ...state
-        }
-      }
-      return {
-        ...state,
-        'searchConstraints': {
-          ...state.searchConstraints,
-          'season': action.payload
-        }
-      };
-    case PUT_FORMAT:
-      if (action.payload === '') {
-        delete state.searchConstraints.format;
-        return {
-          ...state
-        }
-      }
-      return {
-        ...state,
-        'searchConstraints': {
-          ...state.searchConstraints,
-          'format': action.payload
-        }
-      };
     case SEARCH_QUERY:
       return {
         ...state,

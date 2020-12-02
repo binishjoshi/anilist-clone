@@ -8,12 +8,12 @@ import { getTop } from '../../actions/top';
 import RowEntry from './RowEntry';
 import { useStyles } from './styles';
 
-const TopAnimeList = ({ getTop, top, number }) => {
+const TopAnimeList = ({ getTop, top, number, type }) => {
   const classes = useStyles();
 
   useEffect(() => {
-    getTop('ratings', number);
-  }, [getTop, number]);
+    getTop(type, number);
+  }, [getTop, number, type]);
 
   top = top.topState.top.Page
 

@@ -28,6 +28,10 @@ function App() {
             <Route exact path='/search/manga' component={SearchManga} />
             <Route exact path='/anime' component={Anime} />
             <Route exact path='/top50' component={Top} />
+            <Route exact path='/trending' component={Top} />
+            <Route exact path='/popular' component={Top} />
+            <Route exact path='/popular-season' component={Top} />
+            <Route exact path='/upcoming' component={Top} />
             <Route exact path='/manga' component={Manga} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={SignUp} />

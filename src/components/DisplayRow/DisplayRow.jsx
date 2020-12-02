@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-const DisplayRow = ({ heading, trending, type }) => {
+const DisplayRow = ({ heading, trending, type, link}) => {
   const classes = useStyles();
 
   const renderCardRow = () => {
@@ -30,7 +30,7 @@ const DisplayRow = ({ heading, trending, type }) => {
 
   return (
     <div className={classes.displayCard}>
-      <Link className={classes.heading} to='/manga'>
+      <Link className={classes.heading} to={link}>
         <Typography variant="h5">{heading}</Typography>
         <Typography variant="subtitle2">View All</Typography>
       </Link>

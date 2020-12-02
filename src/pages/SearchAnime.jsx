@@ -30,11 +30,11 @@ const SearchAnime = ({ getTrending, trending, searchData, clearSearch }) => {
     if (searchData.searchingStatus === "notSearching") {
       return (
         <React.Fragment>
-          <DisplayRow type="trending" heading="Trending Now" />
-          <DisplayRow type="seasonTrending" heading="Popular This Season" />
-          <DisplayRow type="nextSeason" heading="Upcoming Next Season" />
-          <DisplayRow type="popular" heading="All Time Popular" />
-          <TopAnimeList number={10} />
+          <DisplayRow type="trending" heading="Trending Now" link="/trending" />
+          <DisplayRow type="seasonTrending" heading="Popular This Season" link="/popular-season" />
+          <DisplayRow type="nextSeason" heading="Upcoming Next Season" link="upcoming" />
+          <DisplayRow type="popular" heading="All Time Popular" link="/popular" />
+          <TopAnimeList number={10} type='ratings' />
         </React.Fragment>
       );
     } else if (searchData.searchingStatus === "searching") {

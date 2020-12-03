@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { END_POINT, GET_INFO } from './types';
+import { END_POINT, GET_INFO, REMOVE_INFO } from './types';
 
 export const getInfo = (id) => (dispatch) => {
   const graphqlQuery = `
@@ -122,4 +122,10 @@ export const getInfo = (id) => (dispatch) => {
       });
     })
     .catch(err => console.log(err))
-}
+};
+
+export const removeInfo = () => (dispatch) => {
+  dispatch({
+    type: REMOVE_INFO
+  });
+};

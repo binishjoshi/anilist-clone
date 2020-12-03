@@ -1,4 +1,4 @@
-import { GET_INFO } from '../actions/types';
+import { GET_INFO, REMOVE_INFO } from '../actions/types';
 
 const initalState = {
   infoList: []
@@ -11,6 +11,11 @@ export default function (state = initalState, action) {
         ...state,
         infoList: action.payload
       };
+    case REMOVE_INFO:
+      return {
+        ...state,
+        infoList: [],
+      }
     default:
       return state;
   };

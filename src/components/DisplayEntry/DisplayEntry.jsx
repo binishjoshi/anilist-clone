@@ -12,12 +12,12 @@ import StatusDistribution from '../StatusDistribution/StatusDistrubution';
 import ScoreDistribution from '../ScoreDistribution/ScoreDistribution';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-import { getInfo } from '../../actions/info';
+import { getInfo, removeInfo } from '../../actions/info';
 
 import { useStyles } from './styles';
 import { Typography } from '@material-ui/core';
 
-const DisplayEntry = ({ id, getInfo, info }) => {
+const DisplayEntry = ({ id, getInfo, removeInfo, info }) => {
   const classes = useStyles();
 
   const renderCharacters = () => {
@@ -83,7 +83,10 @@ const DisplayEntry = ({ id, getInfo, info }) => {
 
   useEffect(() => {
     getInfo(id);
-  }, [getInfo, id]);
+    return () => {
+      removeInfo();
+    }
+  }, [getInfo, removeInfo, id]);
 
   const ImageCard = ({ type }) => {
     if (typeof (info) != "undefined") {
@@ -162,4 +165,4 @@ const mapStateToProps = (state) => ({
   info: state.infoState.infoList.Media
 });
 
-export default connect(mapStateToProps, { getInfo })(DisplayEntry);
+export default connect(mapStateToProps, { getInfo, removeInfo })(DisplayEntry);

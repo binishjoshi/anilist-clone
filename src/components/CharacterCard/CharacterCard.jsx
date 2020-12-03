@@ -13,7 +13,7 @@ const CharacterCard = ({ characterInfo, loading }) => {
       let imageAlt = characterInfo.voiceActors[0].name.first;
       imageAlt = imageAlt.toLowerCase() + '_picture';
       return (
-        <Link>
+        <Link to='/character'>
           <div className={classes.voice}>
             <div className={classes.voiceText}>
               <Typography variant="body2">{characterInfo.voiceActors[0].name.last} {characterInfo.voiceActors[0].name.first}</Typography>
@@ -31,7 +31,7 @@ const CharacterCard = ({ characterInfo, loading }) => {
     imageAlt = imageAlt.toLowerCase() + '_picture';
     return (
       <div className={classes.characterCard}>
-        <Link>
+        <Link to='/character'>
           <div className={classes.character}>
             <img alt={imageAlt} src={characterInfo.node.image.medium} />
             <div className={classes.characterText}>

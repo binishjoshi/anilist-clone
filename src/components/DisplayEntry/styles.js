@@ -70,9 +70,8 @@ export const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: 'repeat(7, 13.75%)',
     justifyItems: 'center',
     paddingTop: '3.5%',
-    "& a": {
-      textDecoration: 'none',
-      color: 'inherit',
+    "& p:hover": {
+      cursor: 'pointer',
     },
   },
   entryOverview: {

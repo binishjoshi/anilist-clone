@@ -13,7 +13,7 @@ const StaffCard = ({ staffInfo }) => {
     imageAlt = imageAlt.toLowerCase() + '_picture';
     return (
       <div className={classes.staffCard}>
-        <Link>
+        <Link to='/staff'>
           <div className={classes.staff}>
             <img alt={imageAlt} src={staffInfo.image.medium} />
             <div className={classes.staffText}>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 
 import { useStyles } from './styles';
@@ -24,27 +23,13 @@ const RightTopInfo = ({ info }) => {
         <Typography variant="body2">{description}</Typography>
       </div>
       <div className={classes.tabContainer}>
-        <Link >
-          <Typography variant="body2">Overview</Typography>
-        </Link>
-        <Link >
-          <Typography variant="body2">Watch</Typography>
-        </Link>
-        <Link >
-          <Typography variant="body2">Characters</Typography>
-        </Link>
-        <Link >
-          <Typography variant="body2">Staff</Typography>
-        </Link>
-        <Link >
-          <Typography variant="body2">Reviews</Typography>
-        </Link>
-        <Link >
-          <Typography variant="body2">Stat</Typography>
-        </Link>
-        <Link >
-          <Typography variant="body2">Social</Typography>
-        </Link>
+        <Typography variant="body2">Overview</Typography>
+        <Typography variant="body2">Watch</Typography>
+        <Typography variant="body2">Characters</Typography>
+        <Typography variant="body2">Staff</Typography>
+        <Typography variant="body2">Reviews</Typography>
+        <Typography variant="body2">Stat</Typography>
+        <Typography variant="body2">Social</Typography>
       </div>
     </div>
   );

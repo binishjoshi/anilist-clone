@@ -24,7 +24,10 @@ const SearchAnime = ({ getTrending, trending, searchData, clearSearch }) => {
     getTrending('popular', 5);
     getTrending('next', 5);
     getTrending('trending', 5);
-  }, [getTrending,]);
+    return () => {
+      clearSearch();
+    };
+  }, [getTrending, clearSearch]);
 
   const renderBody = () => {
     if (searchData.searchingStatus === "notSearching") {

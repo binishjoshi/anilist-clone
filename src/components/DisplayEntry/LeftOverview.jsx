@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import uniqid from 'uniqid';
 import { Typography } from '@material-ui/core';
 
-import { fakeData, fetchTags, createData } from './data';
+import { fakeData, fetchTags, createData } from './data.jsx';
 import { useStyles } from './styles';
 
 const LeftOverview = ({ info }) => {
